@@ -11,7 +11,8 @@ ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update -y
-RUN apt install unzip zip -y
+RUN apt-get install unzip -y
+RUN apt-get install zip -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN curl https://rclone.org/install.sh | sudo bash
 
