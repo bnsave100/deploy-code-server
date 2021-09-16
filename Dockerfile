@@ -10,13 +10,16 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && sudo apt-get install unzip wget nano python3.8 software-properties-common -y
+RUN sudo apt-get update 
+RUN sudo apt-get install unzip zip wget nano software-properties-common python3-pip -y
+RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
+RUN sudo apt install python3.8
 RUN curl https://rclone.org/install.sh | sudo bash
 RUN sudo apt install build-essential -y
 RUN curl -s "https://get.sdkman.io" | bash
 RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
 RUN sdk version
-RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
