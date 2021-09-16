@@ -12,6 +12,7 @@ ENV SHELL=/bin/bash
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN curl https://rclone.org/install.sh | sudo bash
+RUN sudo apt install build-essential -y
 
 # Copy rclone tasks to /tmp, to potentially be used
 COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
@@ -27,7 +28,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 # RUN code-server --install-extension esbenp.prettier-vscode
 
 # Install apt packages:
-RUN sudo apt-get install -y ubuntu-make && openjdk-8-jre && software-properties-common && python3.8 && nano
+RUN sudo apt-get install -y openjdk-8-jre && software-properties-common && python3.8 && nano
 RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 
 # Copy files: 
