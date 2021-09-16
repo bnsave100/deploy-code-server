@@ -10,6 +10,11 @@
     "cloud-development",
     "heroku-api"
   ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+    }
+  ],
   "env": {
     "GIT_REPO": {
       "description": "URL of a git repo to clone (optional)",
