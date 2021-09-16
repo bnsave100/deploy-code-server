@@ -16,6 +16,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 RUN curl https://rclone.org/install.sh | sudo bash
 RUN sudo apt install build-essential -y
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN curl -s "https://get.sdkman.io" | bash
 RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
 RUN sdk version
