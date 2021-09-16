@@ -11,8 +11,12 @@ ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install unzip -y
+RUN sudo apt-get install wget -y
 RUN curl https://rclone.org/install.sh | sudo bash
 RUN sudo apt install build-essential -y
+RUN curl -s "https://get.sdkman.io" | bash -y
+RUN source "$HOME/.sdkman/bin/sdkman-init.sh"
+RUN sdk version
 RUN sudo apt-get install openjdk-8-jre -y
 RUN sudo apt-get install software-properties-common -y
 RUN sudo apt-get install python3.8 -y
