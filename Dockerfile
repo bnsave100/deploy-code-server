@@ -10,8 +10,8 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update && upgrade -y
-RUN sudo apt-get install unzip zip wget nano software-properties-common python3-pip python3 -y
+RUN sudo apt-get update -y
+RUN sudo apt-get install unzip apt-transport-https aria2 zip wget curl ssh nano software-properties-common python3-pip python3 -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 RUN curl https://rclone.org/install.sh | sudo bash
