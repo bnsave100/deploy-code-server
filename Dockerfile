@@ -12,7 +12,6 @@ ENV SHELL=/bin/bash
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update -y
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-RUN sudo add-apt-repository ppa:deadsnakes/ppa -y
 RUN curl https://rclone.org/install.sh | sudo bash
 
 # Copy rclone tasks to /tmp, to potentially be used
@@ -30,7 +29,7 @@ RUN sudo chown -R coder:coder /home/coder/.local
 
 # Install apt files
 RUN RUN sudo apt install build-essential -y
-RUN sudo apt-get install unzip apt-transport-https aria2 zip wget curl ssh nano software-properties-common python3-pip python3 -y
+RUN sudo apt-get install unzip zip wget curl nano python3-pip python3 -y
 
 # Copy files: 
 # COPY deploy-container/myTool /home/coder/myTool
