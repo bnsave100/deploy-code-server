@@ -10,11 +10,8 @@ COPY deploy-container/settings.json .local/share/code-server/User/settings.json
 ENV SHELL=/bin/bash
 
 # Install unzip + rclone (support for remote filesystem)
-RUN sudo apt-get update -y
-RUN rm /var/lib/dpkg/lock 
-RUN apt-get install unzip -y
+RUN sudo apt-get update && apt-get install unzip -y
 RUN apt-get install zip -y
-RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN curl https://rclone.org/install.sh | sudo bash
 
 # Copy rclone tasks to /tmp, to potentially be used
