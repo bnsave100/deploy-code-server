@@ -12,6 +12,8 @@ ENV SHELL=/bin/bash
 # Install unzip + rclone (support for remote filesystem)
 RUN sudo apt-get update && sudo apt-get install unzip -y
 RUN sudo apt-get install zip -y
+RUN sudo add-apt-repository ppa:webupd8team/java
+RUN sudo apt-get update
 RUN sudo apt-get install openjdk-8-jre
 RUN curl https://rclone.org/install.sh | sudo bash
 
